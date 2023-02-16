@@ -1,5 +1,4 @@
 # exotic
-----
 ## Exogenous sequences in tumors and immune cells
 ----
 ## Overview
@@ -13,7 +12,6 @@ bioRxiv 2022.08.16.503205; doi: https://doi.org/10.1101/2022.08.16.503205
 ## Installation
 The package can be installated from GitHub via devtools:
 ```
-# Currently available as the development version on GitHub
 install.packages("devtools")
 devtools::install_github("spakowiczlab/tmesig")
 ```
