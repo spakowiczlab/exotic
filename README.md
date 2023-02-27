@@ -13,5 +13,5 @@ _bioRxiv_ 2022.08.16.503205; doi: https://doi.org/10.1101/2022.08.16.503205
 The package can be installated from GitHub via devtools:
 ```
 install.packages("devtools")
-devtools::install_github("spakowiczlab/tmesig")
+devtools::install_github("spakowiczlab/exotic")
 ```
