@@ -10,8 +10,8 @@ Rebecca Hoyd, Caroline E Wheeler, YunZhou Liu, Malvenderjit Jagjit Singh, Mitche
 _bioRxiv_ 2022.08.16.503205; doi: https://doi.org/10.1101/2022.08.16.503205
 
 ## Installation
-The package can be installated from GitHub via devtools:
+The package can be installed from GitHub via devtools:
 ```
 install.packages("devtools")
-devtools::install_github("spakowiczlab/tmesig")
+devtools::install_github("spakowiczlab/exotic")
 ```
