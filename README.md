@@ -1,4 +1,5 @@
-# exotic
+# exotic [![DOI](https://zenodo.org/badge/592828783.svg)](https://zenodo.org/badge/latestdoi/592828783)
+
 ## Exogenous sequences in tumors and immune cells
 ----
 ## Overview
