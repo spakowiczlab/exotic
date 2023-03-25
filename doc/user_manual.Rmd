@@ -1,12 +1,7 @@
 ---
-title: "exotic user manual"
+title: "exotic user manual v1.0"
 author: "Spakowicz Lab"
-output:
-  html_document:
-    toc: yes
-    toc_float: yes
-  pdf_document:
-    toc: yes
+output: github_document
 ---
 
 ```{r setup, include=FALSE}
@@ -21,7 +16,7 @@ A tool for estimating the microbe abundances in tumor RNAseq data.
 
 This package contains functions utilized for the processing and contaminant filtering of high throughput sequencing data to identify low abundance microbes.
 
-![](../figures/exotic schema.png){width=90%}
+![](exotic-schema.png){width=90%}
 
 #### Human/microbe alignment
 Exotic first maps raw reads with quality scores (FASTQs) to the human reference genome. Then, exotic aligns the unmapped reads to a wide range of non-human genomes, including bacteria, archaea, viruses, fungi, and a subset of other eukaryotes. 
