@@ -16,3 +16,4 @@ The package can be installed from GitHub via devtools:
 install.packages("devtools")
 devtools::install_github("spakowiczlab/exotic")
 ```
+For more detailed instructions, please refer to the [user manual](https://github.com/spakowiczlab/exotic/blob/main/doc/user_manual.md).
