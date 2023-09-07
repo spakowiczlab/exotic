@@ -1,4 +1,5 @@
-# exotic
+# exotic [![DOI](https://zenodo.org/badge/592828783.svg)](https://zenodo.org/badge/latestdoi/592828783)
+
 ## Exogenous sequences in tumors and immune cells
 ----
 ## Overview
@@ -15,3 +16,7 @@ The package can be installed from GitHub via devtools:
 install.packages("devtools")
 devtools::install_github("spakowiczlab/exotic")
 ```
+For more detailed instructions, please refer to the [user manual](https://github.com/spakowiczlab/exotic/blob/main/doc/user_manual.md).
+
+## Database 
+The custom database containing bacteria, fungi, viruses, archaea, and select eukaryotes is available for download at https://go.osu.edu/exotic-database. 
