@@ -7,18 +7,19 @@
 #' @export
 transcript_genome_filter <- function(counts, filters){
 
-  load("data/humanRNAfilter.rda")
-  load("data/humanWGSfilter.rda")
-  load("data/mouseRNAfilter.rda")
-  load("data/mouseWGSfilter.rda")
+  data("humanRNAfilter")
+  data("humanWGSfilter")
+  data("mouseRNAfilter")
+  data("mouseWGSfilter")
 
-  humanRNA <- hum.rna$name
-  humanWGS <- hum.wgs$name
-  mouseRNA <- mous.rna$name
-  mouseWGS <- mous.wgs$name
+  dfnames <- c("humanRNA", "humanWGS", "mouseRNA", "mouseWGS")
+  df <- do.call(rbind, lapply(dfnames, function(x) cbind(get(x), Source=x)))
+
+  select.filters <- df %>%
+    filter(Source %in% filters)
 
   counts.filt <- counts %>%
-    dplyr::select(-one_of(filters))
+    select(-one_of(select.filters$name))
 
   return(counts.filt)
 }
