@@ -13,10 +13,10 @@ transcript_genome_filter <- function(counts, filters){
   data("mouseWGSfilter")
 
   dfnames <- c("humanRNA", "humanWGS", "mouseRNA", "mouseWGS")
-  df <- do.call(rbind, lapply(dfnames, function(x) cbind(get(x), Source=x)))
+  df <- do.call(rbind, lapply(dfnames, function(x) cbind(get(x), dfname=x)))
 
   select.filters <- df %>%
-    dplyr::filter(Source %in% filters)
+    dplyr::filter(dfname %in% filters)
 
   counts.filt <- counts %>%
     dplyr::select(-one_of(select.filters$name))
