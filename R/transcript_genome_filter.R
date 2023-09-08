@@ -16,10 +16,10 @@ transcript_genome_filter <- function(counts, filters){
   df <- do.call(rbind, lapply(dfnames, function(x) cbind(get(x), Source=x)))
 
   select.filters <- df %>%
-    filter(Source %in% filters)
+    dplyr::filter(Source %in% filters)
 
   counts.filt <- counts %>%
-    select(-one_of(select.filters$name))
+    dplyr::select(-one_of(select.filters$name))
 
   return(counts.filt)
 }
