@@ -9,7 +9,7 @@ transcript_genome_filter(counts, filters)
 \arguments{
 \item{counts}{A table where rows are samples as defined in the column "sample", columns are species, and values are counts.}
 
-\item{filters}{A list of the filters desired - options include: humanRNA, humanWGS, mouseRNA, mouseWGS}
+\item{filters}{A character vector containing filters desired - options include: "humanRNA", "humanWGS", "mouseRNA", "mouseWGS"}
 }
 \value{
 A data frame containing only the species not included in the desired filters.

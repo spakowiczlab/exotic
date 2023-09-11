@@ -2,7 +2,7 @@
 #'
 #' Filter out potential human and mouse contaminants.
 #' @param counts A table where rows are samples as defined in the column "sample", columns are species, and values are counts.
-#' @param filters A list of the filters desired - options include: humanRNA, humanWGS, mouseRNA, mouseWGS
+#' @param filters A character vector containing filters desired - options include: "humanRNA", "humanWGS", "mouseRNA", "mouseWGS"
 #' @return A data frame containing only the species not included in the desired filters.
 #' @export
 transcript_genome_filter <- function(counts, filters){
@@ -19,7 +19,7 @@ transcript_genome_filter <- function(counts, filters){
     dplyr::filter(dfname %in% filters)
 
   counts.filt <- counts %>%
-    dplyr::select(-one_of(select.filters$name))
+    dplyr::select(-any_of(select.filters$name))
 
   return(counts.filt)
 }
