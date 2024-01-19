@@ -12,7 +12,7 @@ calculate_relative_abundance <- function(counts){
     dplyr::summarise(total = sum(count))
 
   tmp.ra.nosapien <- counts %>%
-    tidyy::gather(-sample, key = "microbe", value = "count") %>%
+    tidyr::gather(-sample, key = "microbe", value = "count") %>%
     dplyr::left_join(tmp.totals) %>%
     dplyr::mutate(ra = count/total) %>%
     dplyr::select(sample, microbe, ra) %>%
