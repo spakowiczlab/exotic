@@ -47,10 +47,9 @@ For analysis, we recommend using the unnormalized, filtered counts or
 the abundance relative to human calculated with the unnormalized,
 filtered counts.
 
-``` red
-NOTE: We previously reccomended VOOM-SNM normalization. See functions format_voom_snm_expr()
-and voom_snm_normalization() for this technique. We now advise against it due to false postives.
-```
+NOTE: We previously reccomended VOOM-SNM normalization. See functions
+format_voom_snm_expr() and voom_snm_normalization() for this technique.
+We now advise against it due to false postives.
 
 ## Installation
 
