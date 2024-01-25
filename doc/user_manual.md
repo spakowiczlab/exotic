@@ -1,6 +1,12 @@
-exotic user manual v1.0
+exotic user manual v1.2
 ================
 Spakowicz Lab
+
+<style>
+pre.red {
+    background-color: #ffbbbb !important;
+}
+</style>
 
 ## Overview
 
@@ -26,11 +32,21 @@ subset of other eukaryotes.
 Filtering steps include the removal of samples with a high percentage of
 exogenous reads and samples from small batches that prevent contaminant
 checks, as well as reads that align to microbes found to be contaminants
-by statistical or literature review-based filtering.
+by statistical or literature review-based filtering. We have also
+included filters developed by fragmenting the human/mouse
+transcriptome/genome into overlapping segments, running through the
+pipeline, and identifying erroneously assigned microbes.
 
 #### Normalization
 
-The remaining samples’ microbe counts are normalized by VOOM-SNM.
+For analysis, we recommend using the unnormalized, filtered counts or
+the relative abundance as calculated per number of human reads
+calculated using the unnormalized, filtered counts.
+
+``` red
+NOTE: We previously reccomended VOOM-SNM normalization. See functions format_voom_snm_expr()
+and voom_snm_normalization() for this technique. We now advise against it due to false postives.
+```
 
 ## Installation
 
@@ -137,45 +153,19 @@ determined by literature review.
 resolve_contaminants(contams, counts, threshold = 0.1)
 ```
 
-#### 8. Formatting TCGA microbe count or gene expression data for normalization
+#### 8. Filter out false postives via human/mouse transcriptome/genome filter
 
-These functions were meant to assist with formatting TCGA data processed
-with other exotic function for voom-snm normalization
-
-TCGA microbe count data:
-
-``` r
-format_voom_snm_microbe(tcga.counts, tcga.meta)
-```
-
-TCGA gene expression data:
+Given a table where rows are samples and columns are species and a
+character vector of desired filters, removes species identified as
+human/mouse erroneously identified as microbial.
 
 ``` r
-format_voom_snm_expr(tcga.exp, tcga.meta)
+transcript_genome_filter(counts, filters)
 ```
 
-#### 9. Normalized decontaminanted counts
+#### 9. Calculate rarefied prevalence of count data
 
-Normalizes count data using voom-snm. This removes variation from
-specified technical variables while preserving variation from specified
-biological variables. For projects only utilizing TCGA data, the
-functions format_voom_snm_microbe and format_voom_snm_expr automatically
-format inputs for this function.
-
-``` r
-voom_snm_normalization(
-  qcMetadata,
-  qcData,
-  biovars,
-  adjvars,
-  return.format = "logcpm",
-  seed
-)
-```
-
-#### 10. Calculate rarefied prevalence of count data
-
-Normalizing data with VOOM-SNM removes any zero counts to maintin
+Normalizing data with VOOM-SNM removes any zero counts to maintain
 compatibility with a log transformation, so for analyses requiring
 prevalence data it is better to use the rarefied prevalence of the
 unnormalized count data. This function rarefies to match the depth of
@@ -185,16 +175,16 @@ the sample with the minimum counts in the provided table.
 counts_to_rarefied_prevalence(counts, seed)
 ```
 
-#### 11. Calculate relative abundances of normalized species counts
+#### 10. Calculate relative abundances of unnormalized counts per human
 
 Given a table where rows are samples and columns are species, calculate
-the relative abundances for each sample.
+the abundances relative to amount human for each sample.
 
 ``` r
-calculate_relative_abundance(counts)
+calculate_abundance_relative_to_human(counts)
 ```
 
-#### 12. Assign full taxonomy to species
+#### 11. Assign full taxonomy to species
 
 Using a kraken2 report with metaphlan formatted output, assign to the
 normalized table resulting from voom_snm_normalization. This is also
@@ -231,7 +221,7 @@ files, and BAM files can be converted to fastQ files.
 Install SAMtools in your UNIX environment following these
 [directions](http://www.htslib.org/download/).
 
-Convert CRAM -\> BAM in batch
+Convert CRAM -> BAM in batch
 
 ``` bash
 module load samtools
@@ -259,7 +249,7 @@ fi
 done
 ```
 
-convert BAM -\> fastq in batch
+convert BAM -> fastq in batch
 
 ``` bash
 module load samtools
@@ -268,4 +258,51 @@ samtools fastq -@ 8 ",i," \\
                  paste0("-1 ",s,"_1.fastq.gz \\"),
                  paste0("-2 ",s,"_2.fastq.gz \\"),
                  paste0("-0 /dev/null -s /dev/null -n"),
+```
+
+### Methods we know longer reccomend
+
+#### Formatting TCGA microbe count or gene expression data for normalization
+
+These functions were meant to assist with formatting TCGA data processed
+with other exotic function for voom-snm normalization
+
+TCGA microbe count data:
+
+``` r
+format_voom_snm_microbe(tcga.counts, tcga.meta)
+```
+
+TCGA gene expression data:
+
+``` r
+format_voom_snm_expr(tcga.exp, tcga.meta)
+```
+
+#### Normalized decontaminanted counts
+
+Normalizes count data using voom-snm. This removes variation from
+specified technical variables while preserving variation from specified
+biological variables. For projects only utilizing TCGA data, the
+functions format_voom_snm_microbe and format_voom_snm_expr automatically
+format inputs for this function.
+
+``` r
+voom_snm_normalization(
+  qcMetadata,
+  qcData,
+  biovars,
+  adjvars,
+  return.format = "logcpm",
+  seed
+)
+```
+
+#### Calculate relative abundances of normalized species counts
+
+Given a table where rows are samples and columns are species, calculate
+the relative abundances for each sample.
+
+``` r
+calculate_relative_abundance(counts)
 ```
