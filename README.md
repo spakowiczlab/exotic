@@ -20,3 +20,17 @@ For more detailed instructions, please refer to the [user manual](https://github
 
 ## Database 
 The custom database containing bacteria, fungi, viruses, archaea, and select eukaryotes is available for download at https://go.osu.edu/exotic-database. The human reference genome (hg38) and univec contaminants database are included as an additional contaminant filter.
+
+## Version History
+
+### v1.1
+Additional filter function, developed by segmenting the CHM13 human and GRCm39 mouse transcriptome/genome into 100 base pairs, with 50 base pair overlaps, and running through the exotic pipeline. This function filters out microbes falsely identified as microbial in this process. 
+```
+transcript_genome_filter(counts, filters)
+```
+
+### v1.2
+Additional function to calculate the abundance relative to human counts. For analysis, we now recommend using the unnormalized, filtered counts or the abundance relative to human calculated with the unnormalized, filtered counts.
+```
+calculate_abundance_relative_to_human(counts)
+```
