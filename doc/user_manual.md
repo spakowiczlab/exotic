@@ -2,11 +2,15 @@ exotic user manual v1.2
 ================
 Spakowicz Lab
 
-<style>
-pre.red {
-    background-color: #ffbbbb !important;
-}
-</style>
+-   [Overview](#overview)
+-   [Installation](#installation)
+-   [Usage](#usage)
+    -   [Download the databases](#download-the-databases)
+    -   [Input data](#input-data)
+    -   [Standard workflow](#standard-workflow)
+-   [Related resources](#related-resources)
+-   [Starting from CRAM or BAM files](#starting-from-cram-or-bam-files)
+-   [Methods we no longer reccomend](#methods-we-no-longer-reccomend)
 
 ## Overview
 
@@ -40,8 +44,8 @@ pipeline, and identifying erroneously assigned microbes.
 #### Normalization
 
 For analysis, we recommend using the unnormalized, filtered counts or
-the relative abundance as calculated per number of human reads
-calculated using the unnormalized, filtered counts.
+the abundance relative to human calculated with the unnormalized,
+filtered counts.
 
 ``` red
 NOTE: We previously reccomended VOOM-SNM normalization. See functions format_voom_snm_expr()
@@ -194,8 +198,6 @@ compatible with the unnormalized counts and rarefied prevalence outputs.
 assign_taxonomy(kraken.tax, species.tab)
 ```
 
-## FAQ
-
 ## Related resources
 
 Please see the
@@ -210,7 +212,7 @@ Muniak, Nicolas Denko, David Carbone, Xiaokui Mo, Daniel Spakowicz
 bioRxiv 2022.08.16.503205; doi:
 <https://doi.org/10.1101/2022.08.16.503205>*
 
-### Starting from CRAM or BAM files
+## Starting from CRAM or BAM files
 
 CRAM and BAM files are compressed versions of mapped sequence data
 formats. For use of the pipeline, they will need to be converted to the
@@ -260,7 +262,7 @@ samtools fastq -@ 8 ",i," \\
                  paste0("-0 /dev/null -s /dev/null -n"),
 ```
 
-### Methods we know longer reccomend
+## Methods we no longer reccomend
 
 #### Formatting TCGA microbe count or gene expression data for normalization
 

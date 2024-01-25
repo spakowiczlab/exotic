@@ -1,12 +1,17 @@
 ---
 title: "exotic user manual v1.2"
 author: "Spakowicz Lab"
-output: github_document
+output: 
+  html_document:
+    toc: true
+    toc_float: true
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
+
+
 <style>
 pre.red {
     background-color: #ffbbbb !important;
@@ -146,14 +151,12 @@ assign_taxonomy(kraken.tax, species.tab)
 ```
 
 
-## FAQ
-
 ## Related resources
 Please see the [exotic-manuscript](https://github.com/spakowiczlab/exotic-manuscript) repository for the analyses related to the [manuscript](https://www.biorxiv.org/content/10.1101/2022.08.16.503205v1):
 
 *Exogenous sequences in tumors and immune cells (exotic): a tool for estimating the microbe abundances in tumor RNAseq data. Rebecca Hoyd, Caroline E Wheeler, YunZhou Liu, Malvenderjit Jagjit Singh, Mitchell Muniak, Nicolas Denko, David Carbone, Xiaokui Mo, Daniel Spakowicz bioRxiv 2022.08.16.503205; doi: https://doi.org/10.1101/2022.08.16.503205*
 
-### Starting from CRAM or BAM files
+## Starting from CRAM or BAM files
 ```{r echo=FALSE}
 # DiagrammeR::grViz("digraph {
 #   graph [layout = dot, rankdir = LR]
@@ -213,7 +216,7 @@ samtools fastq -@ 8 ",i," \\
 ```
 
 
-### Methods we know longer reccomend 
+## Methods we no longer reccomend 
 
 #### Formatting TCGA microbe count or gene expression data for normalization 
 
