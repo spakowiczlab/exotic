@@ -30,7 +30,7 @@ Exotic first maps raw reads with quality scores (FASTQs) to the human reference 
 Filtering steps include the removal of samples with a high percentage of exogenous reads and samples from small batches that prevent contaminant checks, as well as reads that align to microbes found to be contaminants by statistical or literature review-based filtering. We have also included filters developed by fragmenting the human/mouse transcriptome/genome into overlapping segments, running through the pipeline, and identifying erroneously assigned microbes. 
 
 #### Normalization
-For analysis, we recommend using the unnormalized, filtered counts or the relative abundance as calculated per number of human reads calculated using the unnormalized, filtered counts.
+For analysis, we recommend using the unnormalized, filtered counts or the abundance relative to human calculated with the unnormalized, filtered counts.
 
 ```{red}
 NOTE: We previously reccomended VOOM-SNM normalization. See functions format_voom_snm_expr()
