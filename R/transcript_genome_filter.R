@@ -2,7 +2,9 @@
 #'
 #' Filter out potential human and mouse contaminants.
 #' @param counts A table where rows are samples as defined in the column "sample", columns are species, and values are counts.
-#' @param filters A character vector containing filters desired - options include: "humanRNA", "humanWGS", "mouseRNA", "mouseWGS"
+#' @param filters A character vector containing filters desired
+#' options include: "humanRNA", "humanWGS", "mouseRNA", "mouseWGS", "humanRNA.uniq", "humanWGS.uniq", "mouseRNA.uniq", "mouseWGS.uniq"
+#' '.uniq' indicates krakenuniq filter
 #' @return A data frame containing only the species not included in the desired filters.
 #' @export
 transcript_genome_filter <- function(counts, filters){
@@ -11,8 +13,12 @@ transcript_genome_filter <- function(counts, filters){
   data("humanWGSfilter")
   data("mouseRNAfilter")
   data("mouseWGSfilter")
+  data("humanRNAfilter_krakenuniq")
+  data("humanWGSfilter_krakenuniq")
+  data("mouseRNAfilter_krakenuniq")
+  data("mouseWGSfilter_krakenuniq")
 
-  dfnames <- c("humanRNA", "humanWGS", "mouseRNA", "mouseWGS")
+  dfnames <- c("humanRNA", "humanWGS", "mouseRNA", "mouseWGS", "humanRNA.uniq", "humanWGS.uniq", "mouseRNA.uniq", "mouseWGS.uniq")
   df <- do.call(rbind, lapply(dfnames, function(x) cbind(get(x), dfname=x)))
 
   select.filters <- df %>%
