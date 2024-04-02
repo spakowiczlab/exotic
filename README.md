@@ -34,3 +34,10 @@ Additional function to calculate the abundance relative to human counts. For ana
 ```
 calculate_abundance_relative_to_human(counts)
 ```
+
+### v2.0
+Added krakenuniq-based filters. For analysis, we now recommend using the krakenuniq unnormalized, filtered counts or the abundance relative to human calculated with the unnormalized, filtered counts.
+```
+transcript_genome_filter(counts, "humanRNA.uniq")
+```
+
