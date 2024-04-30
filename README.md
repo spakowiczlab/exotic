@@ -5,10 +5,10 @@
 ## Overview
 Functions utilized for the processing and contaminant filtering of high throughput sequencing data to identify low abundance microbes. 
 
-Please see the [exotic-manuscript](https://github.com/spakowiczlab/exotic-manuscript) repository for the analyses related to the [manuscript](https://www.biorxiv.org/content/10.1101/2022.08.16.503205v1):
-> __Exogenous sequences in tumors and immune cells (exotic): a tool for estimating the microbe abundances in tumor RNAseq data.__
-Rebecca Hoyd, Caroline E Wheeler, YunZhou Liu, Malvenderjit Jagjit Singh, Mitchell Muniak, Nicolas Denko, David Carbone, Xiaokui Mo, Daniel Spakowicz
-_bioRxiv_ 2022.08.16.503205; doi: https://doi.org/10.1101/2022.08.16.503205
+Please see the [exotic-manuscript](https://github.com/spakowiczlab/exotic-manuscript) repository for the analyses related to the [manuscript](https://aacrjournals.org/cancerrescommun/article/doi/10.1158/2767-9764.CRC-22-0435/729620):
+> __Exogenous sequences in tumors and immune cells (exotic): A tool for estimating the microbe abundances in tumor RNAseq data.__ 
+Hoyd R, Wheeler CE, Liu Y, Jagjit Singh MS, Muniak M, Jin N, Denko NC, Carbone DP, Mo X, Spakowicz DJ.
+_Cancer Research Communications._ AACR; 2023 https://aacrjournals.org/cancerrescommun/article/doi/10.1158/2767-9764.CRC-22-0435/729620
 
 ## Installation
 The package can be installed from GitHub via devtools:
@@ -36,7 +36,7 @@ calculate_abundance_relative_to_human(counts)
 ```
 
 ### v2.0
-Added krakenuniq-based filters. For analysis, we now recommend using the krakenuniq unnormalized, filtered counts or the abundance relative to human calculated with the unnormalized, filtered counts.
+Added krakenuniq-based filters. For analysis, we now recommend using the krakenuniq unnormalized, filtered counts or the abundance relative to human calculated with the unnormalized, filtered counts. Synthetic genome/transciptome accessible via https://zenodo.org/records/10999313.
 ```
 transcript_genome_filter(counts, "humanRNA.uniq")
 ```
