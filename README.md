@@ -24,7 +24,7 @@ The custom database containing bacteria, fungi, viruses, archaea, and select euk
 ## Version History
 
 ### v1.1
-Additional filter function, developed by segmenting the CHM13 human and GRCm39 mouse transcriptome/genome into 100 base pairs, with 50 base pair overlaps, and running through the exotic pipeline. This function filters out microbes falsely identified as microbial in this process. 
+Additional filter function, developed by segmenting the CHM13 human and GRCm39 mouse transcriptome/genome into 100 base pairs, with 50 base pair overlaps, and running through the exotic pipeline. This function filters out microbes falsely identified as microbial in this process. The synthetic genome/transciptome are available at https://zenodo.org/records/10999313.
 ```
 transcript_genome_filter(counts, filters)
 ```
@@ -36,8 +36,4 @@ calculate_abundance_relative_to_human(counts)
 ```
 
 ### v2.0
-Added krakenuniq-based filters. For analysis, we now recommend using the krakenuniq unnormalized, filtered counts or the abundance relative to human calculated with the unnormalized, filtered counts. Synthetic genome/transciptome accessible via https://zenodo.org/records/10999313.
-```
-transcript_genome_filter(counts, "humanRNA.uniq")
-```
-
+Added krakenuniq-based filters. For analysis, we now recommend using the krakenuniq unnormalized, filtered counts or the abundance relative to human calculated with the unnormalized, filtered counts. 
