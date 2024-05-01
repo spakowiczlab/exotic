@@ -3,7 +3,7 @@
 ## Exogenous sequences in tumors and immune cells
 ----
 ## Overview
-Functions utilized for the processing and contaminant filtering of high throughput sequencing data to identify low abundance microbes. 
+Functions for the processing and contaminant filtering of high throughput sequencing data to identify low abundance microbes. 
 
 Please see the [exotic-manuscript](https://github.com/spakowiczlab/exotic-manuscript) repository for the analyses related to the [manuscript](https://aacrjournals.org/cancerrescommun/article/doi/10.1158/2767-9764.CRC-22-0435/729620):
 > __Exogenous sequences in tumors and immune cells (exotic): A tool for estimating the microbe abundances in tumor RNAseq data.__ 
@@ -19,7 +19,7 @@ devtools::install_github("spakowiczlab/exotic")
 For more detailed instructions, please refer to the [user manual](https://github.com/spakowiczlab/exotic/blob/main/doc/user_manual.md).
 
 ## Database 
-The custom database containing bacteria, fungi, viruses, archaea, and select eukaryotes is available for download at https://go.osu.edu/exotic-database. The human reference genome (hg38) and univec contaminants database are included as an additional contaminant filter.
+The custom database containing bacteria, fungi, viruses, archaea, and select eukaryotes is available for download at https://go.osu.edu/exotic-database. The human reference genome (hg38) and univec contaminants database are included as an additional contaminant filters.
 
 ## Version History
 
